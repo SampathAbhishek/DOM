@@ -1,0 +1,162 @@
+very important topic in javascript.
+DOCUMENT OBJECT MODEL(DOM)
+
+1.Adding js to website:-
+3 ways
+
+1.Internal js
+inside <body> tag
+
+<html>
+<head>
+</head>
+<body>
+   <script type=text/javascript>
+        alert("Hello world");
+   </script>
+</body>
+
+2.inline js
+
+<body onload="alert('Hello World');">  dif to debug
+
+3.External js
+
+<script src="index.js" charset="utf-8"></script>
+
+know this:-  css always in head(to be loaded in the very beginning) while js script tag always in body.
+
+
+DOM
+
+It basically catalogs the web page into individual objects that we can select and manipulate.
+So on the left here we've got the HTML code of a really basic web site.
+
+It's just got a head section, a body section, a title, and a button. And on the right is roughly the structure
+
+of our web site that you might see in the browser.
+
+Now the task of converting an HTML file into the DOM is done by the browser
+
+when you load up the web page. And what it does is that it turns each of these elements and their associated
+
+data into a tree structure with a whole bunch of objects that you can select and manipulate.
+
+So the tree model on the right is usually how you'll see the DOM represented.
+
+You can see that all of the elements in our HTML has been converted into objects, and their relationships
+
+to each other mapped out in the tree diagram.
+
+In tree structure:-
+
+document.firstElementChild - gets first child of parent.
+document.lastElementChild -  gets last child of parent 
+
+so with the help of this we can easily select the wanted object and manipulate it.
+
+eg:-
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Site</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <input type="checkbox" name="" value="">
+    <button type="button" name="button">Click Me</button>
+    <ul>
+      <li>
+        <a href="www.google.com">Google</a>
+      </li>
+      <li>Second</li>
+      <li>Third</li>  --> This will becom Sampath Abhishek.(after DOM manipulation)
+    </ul>
+  </body>
+</html>
+
+
+Here var para = document.firstElementChild.lastElementChild.lastElementChild.lastElementChild;
+will store unordered list child li(third) in para var.
+Now use this para var to manipulate the innerHTML
+
+para.innerHTML="Sampath Abhishek";
+para.style.color = "red"
+document.querySelector("input").click();  [will tick mark input checkbox]
+
+
+every object has a property and a Method.
+eg:-
+Button object has the following properties:-
+
+1.innerHTML
+2.style
+3.firstChild
+
+these properties can be used as set and get functions.
+
+Method object has the following properties:-
+
+1.click()
+2.appendChild()
+3.setAttribute()
+
+
+document.getElementsByTagName("li");
+with the help of this we can select an entire list i.e. all li 's of ul and it will return an array of li 's
+like this HTMLCollection(3) [li, li, li]
+Now,we can manipulate the object by accessing the array
+document.getElementsByTagName("li")[2].style.color="purple";
+
+
+document.getElementsByClassName("btn");
+HTMLCollection []  - why this output because even though there is only one button still it will give an array so by accessing array o th index you can manipulate.
+document.getElementsByClassName("btn")[0].style.color="red";
+
+document.getElementById - here we get only single because id is unique.
+document.getElementById("title").innerHTML="Sampath Abhishek";
+
+
+
+document.querySelector(".item").innerHTML="Abhishek"  ------------> This is for class selector
+document.querySelector("#item").innerHTML="Abhishek"  ------------> This is for id selector
+
+document.querySelectorAll("li"); -> returns an array similar like getElementsByTagName("li");
+document.querySelectorAll("li")[1].style.color="pink";  
+
+
+Manipulating css using javaScript( The only difference is that prop like font-size are in camel case with no - and its value must be in string "")
+document.querySelector("h1").style.fontSize="10rem";
+document.querySelector("h1").style.visibility="hidden";
+document.querySelector("h1").style.visibility="visible";
+
+document.querySelector("button").style.backgroundColor="yellow";
+
+
+Note:- html - structure 
+css - style
+js - functionality -  why i am telling again because we were trying to change styling using js recently thats why.Enjoy learning.
+You will thank me later for all this notes later.You are welocome , same like ds which got u job.
+
+
+document.querySelector("button").classList;
+will return all the different classes attached to the button element we found.
+document.querySelector("button").classList.add("newclass");
+this will add newclass to the existing classes of button element.
+similarly .remove()
+.toggle()
+
+difference bet textContent and innerHTML;
+
+document.querySelector("h1").innerHTML = "<strong>Sampath</strong>"; --> can add more not only text
+
+documnet.querySelector("h1").textContent = "Abhishek"  --> only text
+
+document.querySelector("a").getAttribute("href");
+o/p ---> www.google.com helps to get attribute
+document.querySelector("a").setAttribute("href","www.facebook.com");
+helps to set attribute
+
